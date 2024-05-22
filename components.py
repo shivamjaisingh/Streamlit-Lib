@@ -4,7 +4,7 @@ import numpy as np
 from PIL import Image
 import time
 import matplotlib.pyplot as plt
-
+import seaborn as sns
 
 st.title("Exploring Streamlit")
 st.header("Heading 1")
@@ -94,13 +94,13 @@ with st.echo():
 
 
 
-with st.spinner("Counting on going..."):
-    progress_bar = st.progress(0)
-    for done in range(100):
-        time.sleep(0.1)
-        progress_bar.progress(done + 1)    
-st.success("Counting complete.")
-st.balloons()
+# with st.spinner("Counting on going..."):
+#     progress_bar = st.progress(0)
+#     for done in range(100):
+#         time.sleep(0.1)
+#         progress_bar.progress(done + 1)    
+# st.success("Counting complete.")
+# st.balloons()
 
 
 st.markdown("### st.error()")
@@ -137,3 +137,53 @@ if st.checkbox("Click to show a graph of the data"):
     fig, ax = plt.subplots()
     ax = sns.barplot(x="Mammals", y="Number", data=df)
     st.pyplot(fig)
+
+
+st.radio("Which of these is not a mammal?",
+["Dog", "Cat", "Eagle", "Pig"])
+
+st.selectbox("Which of these is a mammal?",
+["Pigeon", "Dove", "Fox", "Vulture"])
+
+st.select_slider("Which of these is not a bird?",
+["Ostrich", "Flamingo", "Turkey", "Bat", "Pigeon"])
+
+st.multiselect("Which of these are birds?",
+["Fox", "Eagle",
+"Bat", "Dove"])
+
+slider_int = st.slider("Select an integer",
+                       min_value=0,
+                       max_value=100,
+                       value=25)
+st.write(slider_int, type(slider_int))
+
+slider_float = st.slider("Select a float",
+                         min_value=0.0,
+                         max_value=100.0,
+                         value=25.0)
+st.write(slider_float, type(slider_float))
+
+st.markdown("## Single-Line Input")
+text_input = st.text_input("Give an example of a mammal")
+st.write(text_input)
+
+st.markdown("## Multi-Line Input")
+text_area = st.text_area("Give a list of 3 birds")
+st.write(text_area)
+
+
+file = st.file_uploader("Select a file to upload", type=["png", "jpg"])
+
+if file is not None:
+    st.image(file)
+
+df = pd.DataFrame({"Mammal": ["Cat", "Bat", "Fox"],
+                   "Number": [3, 1, 5]})
+
+st.dataframe(df)
+
+st.download_button("Download data",
+                   df.to_csv(index=False),
+                   file_name="data.csv")
+
