@@ -113,3 +113,11 @@ st.warning("This will be deprecated soon")
 st.markdown("### st.info()")
 st.info("App running optimally")
 
+sample_data = {"Mammals": ["Cat", "Dog", "Bat", "Fox", "Pig"],
+               "Birds": ["Parrot", "Eagle", "Duck", "Pegeon", "Vulture"]}
+df = pd.DataFrame(sample_data)
+
+st.dataframe(df)
+
+if st.button("Click to show only mammals"):
+    st.dataframe(df["Mammals"])
