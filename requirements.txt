@@ -2,6 +2,5 @@ streamlit
 pandas
 numpy
 pillow
-time
 matplotlib==3.7.2
 seaborn
