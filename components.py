@@ -217,3 +217,15 @@ col2.area_chart(sample_data)
 with col3:
     st.subheader("Bar Chart")
     st.bar_chart(sample_data)
+
+
+
+
+df = pd.DataFrame({"Mammal": ["Sea Lion", "Seal", "Walrus"], "Count": [3, 5, 2]})
+
+st.dataframe(df)
+with st.expander("Click to see a bar graph of the above data"):
+    fig, ax = plt.subplots()
+    ax.set_title("Mammal Count")
+    ax = sns.barplot(x="Mammal", y="Count", data=df)
+    st.pyplot(fig)
