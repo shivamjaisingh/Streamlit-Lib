@@ -47,7 +47,7 @@ ax = sns.scatterplot(arr1)
 st.pyplot(fig)
 
 st.image("https://bit.ly/edus3ha")
-
 st.video("https://bit.ly/canibs3")
-
 st.audio("https://bit.ly/rainaws3")
+
+
