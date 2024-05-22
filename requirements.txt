@@ -3,5 +3,5 @@ pandas
 numpy
 pillow
 time
-matplotlib.pyplot
+matplotlib
 seaborn
