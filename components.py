@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 from PIL import Image
 import time
+import matplotlib.pyplot as plt
+
 
 st.title("Exploring Streamlit")
 st.header("Heading 1")
@@ -121,3 +123,17 @@ st.dataframe(df)
 
 if st.button("Click to show only mammals"):
     st.dataframe(df["Mammals"])
+
+
+st.checkbox("Click to add a check mark")
+
+sample_data = {"Mammals": ["Cat", "Dog", "Bat", "Fox", "Pig"],
+               "Number": [5, 3, 7, 1, 6]}
+df = pd.DataFrame(sample_data)
+
+st.dataframe(df)
+
+if st.checkbox("Click to show a graph of the data"):
+    fig, ax = plt.subplots()
+    ax = sns.barplot(x="Mammals", y="Number", data=df)
+    st.pyplot(fig)
